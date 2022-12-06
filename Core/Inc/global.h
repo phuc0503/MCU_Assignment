@@ -8,10 +8,16 @@
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 
+#include "software_timer.h"
+#include "button.h"
+#include "main.h"
+#include "led_color.h"
+
 #define INIT 			1
 #define AUTO_RED 		2
 #define AUTO_YELLOW		3
 #define AUTO_GREEN		4
+#define RESET_ALL		5
 
 #define RED				20
 #define YELLOW			21

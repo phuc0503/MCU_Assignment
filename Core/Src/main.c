@@ -23,6 +23,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "software_timer.h"
+#include "button.h"
+#include "led_color.h"
+#include "global.h"
+#include "fsm_automatic.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -116,7 +120,9 @@ int main(void)
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   while (1)
   {
-	  test_IO();
+	  fsm_automatic_run1();
+	  fsm_automatic_run2();
+//	  test_IO();
 //	  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 10);
 //	  HAL_Delay(1000);
 //	  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 100);
