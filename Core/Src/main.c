@@ -27,6 +27,7 @@
 #include "led_color.h"
 #include "global.h"
 #include "fsm_automatic.h"
+#include "fsm_manual.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -79,6 +80,20 @@ void test_IO(){
 //		HAL_Delay(1000);
 	}
 }
+void buzzer()
+{
+	__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, timer_counter);
+	if(timer3_flag == 1)
+	{
+		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, timer_counter+30);
+		setTimer3(500);
+	}
+	if(timer1_counter == 0)
+	{
+		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 0);
+		timer_counter = 10;
+	}
+}
 /* USER CODE END 0 */
 
 /**
@@ -122,11 +137,7 @@ int main(void)
   {
 	  fsm_automatic_run1();
 	  fsm_automatic_run2();
-//	  test_IO();
-//	  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 10);
-//	  HAL_Delay(1000);
-//	  __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 100);
-//	  HAL_Delay(1000);
+	  fsm_manual_run();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -325,6 +336,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	timerRun();
+	getKeyInput();
 }
 /* USER CODE END 4 */
 

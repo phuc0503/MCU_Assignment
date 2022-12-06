@@ -42,21 +42,21 @@ void getKeyInput(){
 		KeyBuffer1[i] = KeyBuffer2[i];
 		KeyBuffer2[i] = KeyBuffer3[i];
 		switch(i){
-		//Button 1
+		//Pedestrian button
 		case 0:
-			KeyBuffer3[i] = HAL_GPIO_ReadPin(B1_GPIO_Port,	B1_Pin);
+			KeyBuffer3[i] = HAL_GPIO_ReadPin(B0_GPIO_Port,	B0_Pin);
+			break;
+		//Button 1
+		case 1:
+			KeyBuffer3[i] = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
 			break;
 		//Button 2
-		case 1:
+		case 2:
 			KeyBuffer3[i] = HAL_GPIO_ReadPin(B2_GPIO_Port, B2_Pin);
 			break;
 		//Button 3
-		case 2:
-			KeyBuffer3[i] = HAL_GPIO_ReadPin(B3_GPIO_Port, B3_Pin);
-			break;
-		//Pedestrian button
 		case 3:
-			KeyBuffer3[i] = HAL_GPIO_ReadPin(B0_GPIO_Port, B0_Pin);
+			KeyBuffer3[i] = HAL_GPIO_ReadPin(B3_GPIO_Port, B3_Pin);
 			break;
 		default:
 			break;
