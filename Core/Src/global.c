@@ -7,5 +7,8 @@
 #include "global.h"
 int status = INIT;
 int status1 = INIT;
-int check = 0;
+int red_init = 5;
+int green_init = 3;
+int yellow_init = 2;
+//int check = 0;
 int timer_counter = 10;

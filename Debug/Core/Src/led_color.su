@@ -1,3 +1,3 @@
-../Core/Src/led_color.c:10:6:setLed1	16	static
-../Core/Src/led_color.c:31:6:setLed2	16	static
-../Core/Src/led_color.c:52:6:setLed_Pedes	16	static
+../Core/Src/led_color.c:12:6:setLed1	16	static
+../Core/Src/led_color.c:45:6:setLed2	16	static
+../Core/Src/led_color.c:78:6:setLed_Pedes	16	static

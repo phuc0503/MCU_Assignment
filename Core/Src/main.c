@@ -82,17 +82,17 @@ void test_IO(){
 }
 void buzzer()
 {
-	__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, timer_counter);
-	if(timer3_flag == 1)
-	{
-		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, timer_counter+30);
-		setTimer3(500);
-	}
-	if(timer1_counter == 0)
-	{
-		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 0);
-		timer_counter = 10;
-	}
+//	__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, timer_counter);
+//	if(timer3_flag == 1)
+//	{
+//		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, timer_counter+30);
+//		setTimer3(500);
+//	}
+//	if(timer1_counter == 0)
+//	{
+//		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 0);
+//		timer_counter = 10;
+//	}
 }
 /* USER CODE END 0 */
 
@@ -138,6 +138,7 @@ int main(void)
 	  fsm_automatic_run1();
 	  fsm_automatic_run2();
 	  fsm_manual_run();
+	  fsm_setTime_run();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -201,7 +202,7 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 7999;
+  htim2.Init.Prescaler = 63999;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim2.Init.Period = 9;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
