@@ -82,7 +82,6 @@ void fsm_automatic_run2(){
 	case AUTO_RED:
 		if(timer2_flag == 1)
 		{
-
 			status1 = AUTO_GREEN;
 			setTimer2(3000);
 		}

@@ -7,24 +7,35 @@
 
 #include "fsm_manual.h"
 
+void checkbutton2()
+{
+	if(isButtonPressed(1))
+	{
+		status = TIME_CHANGE;
+		status1 = TIME_CHANGE;
+	}
+}
+void checkbutton3()
+{
+	if(isButtonPressed(1))
+	{
+		status = INIT;
+		status1 = INIT;
+	}
+}
+
 void fsm_manual_run()
 {
 	switch(status){
 	case MANUAL:
-		if(isButtonPressed(2)){
-			status = MAN_RED;
-		}
+		status = MAN_RED;
 		break;
 
 	case MAN_RED:
 		if(isButtonPressed(2)){
 			status = MAN_GREEN;
 		}
-		if(isButtonPressed(1))
-		{
-			status = INIT;
-			status1 = INIT;
-		}
+		checkbutton2();
 		setLed1(RED);
 		setLed2(GREEN);
 		break;
@@ -35,14 +46,43 @@ void fsm_manual_run()
 		if(isButtonPressed(2)){
 			status = MAN_RED;
 		}
-		if(isButtonPressed(1))
+		checkbutton2();
+		break;
+	}
+}
+
+void fsm_time()
+{
+	switch(status){
+	case TIME_CHANGE:
+		status = TIME_RED;
+		setTimer1(500);
+		break;
+
+	case TIME_RED:
+		checkbutton3();
+		if(timer1_flag == 1)
 		{
-			status = INIT;
-			status1 = INIT;
+
+			setTimer1(500);
 		}
 		break;
 
-	case MAN_YELLOW:
+	case TIME_GREEN:
+		if(timer1_flag == 1)
+		{
+
+			setTimer1(500);
+		}
+		checkbutton3();
+		break;
+	case TIME_YELLOW:
+		if(timer1_flag == 1)
+		{
+
+			setTimer1(500);
+		}
+		checkbutton3();
 		break;
 	}
 }

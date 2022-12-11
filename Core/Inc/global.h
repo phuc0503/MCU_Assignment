@@ -23,11 +23,16 @@
 #define MAN_RED			7
 #define MAN_GREEN		8
 #define MAN_YELLOW		9
+#define TIME_CHANGE		10
+#define TIME_RED		12
+#define TIME_GREEN		13
+#define	TIME_YELLOW		14
 
 #define RED				20
 #define YELLOW			21
 #define GREEN			22
 #define OFF				23
+#define
 
 extern int color;
 extern int status;
