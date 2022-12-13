@@ -18,7 +18,7 @@
 #define AUTO_RED 		2
 #define AUTO_YELLOW		3
 #define AUTO_GREEN		4
-#define RESET_ALL		5
+#define PEDES			5
 #define MANUAL			6
 #define MAN_RED			7
 #define MAN_GREEN		8
@@ -27,6 +27,7 @@
 #define TIME_RED        12
 #define TIME_GREEN      13
 #define TIME_YELLOW     14
+#define WAITTING		15
 
 #define RED				20
 #define YELLOW			21
@@ -40,6 +41,7 @@ extern int color;
 extern int status;
 extern int status1;
 extern int timer1_counter;
+extern int timer1_flag;
 //extern int check;
 extern int timer_counter;
 extern int red_init;

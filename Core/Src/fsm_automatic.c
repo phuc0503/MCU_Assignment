@@ -31,15 +31,6 @@ void fsm_automatic_run1(){
 			status = AUTO_GREEN;
 			setTimer1(green_init*1000);
 		}
-		if(timer1_counter == 2000)
-		{
-			setTimer3(500);
-			buzzer();
-		}
-		if(timer1_counter < 2000)
-		{
-			buzzer();
-		}
 		setLed1(RED);
 		setLed_Pedes(GREEN);
 		checkbutton();
@@ -64,6 +55,12 @@ void fsm_automatic_run1(){
 		setLed1(GREEN);
 		setLed_Pedes(RED);
 		checkbutton();
+		if(isButtonPressed(0)){
+			status = PEDES;
+			status1 = PEDES;
+			setTimer1(10000);
+			setTimer3(1000);
+		}
 		break;
 	case MANUAL:
 		if(isButtonPressed(1))
@@ -71,6 +68,24 @@ void fsm_automatic_run1(){
 			status = INIT;
 			status1 = INIT;
 		}
+		break;
+	case PEDES:
+		if(timer1_flag == 1){
+			status = AUTO_GREEN;
+			setTimer1(green_init*1000);
+			status1 = AUTO_RED;
+			setTimer2(red_init*1000);
+			timer_counter = 10;
+		}
+		//TODO
+		if(timer3_flag == 1)
+		{
+			timer_counter += 10;
+			setTimer3(1000);
+		}
+		setLed_Pedes(GREEN);
+		setLed1(RED);
+		setLed2(RED);
 		break;
 	}
 }
@@ -84,7 +99,6 @@ void fsm_automatic_run2(){
 	case AUTO_RED:
 		if(timer2_flag == 1)
 		{
-
 			status1 = AUTO_GREEN;
 			setTimer2(green_init*1000);
 		}
@@ -109,7 +123,6 @@ void fsm_automatic_run2(){
 		setLed2(GREEN);
 		break;
 	case MANUAL:
-		setLed2(OFF);
 		break;
 	}
 }

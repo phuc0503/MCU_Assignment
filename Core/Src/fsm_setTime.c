@@ -7,15 +7,6 @@
 
 #include "fsm_setTime.h"
 
-void checkbutton3()
-{
-    if(isButtonPressed(1))
-    {
-        status = INIT;
-        status1 = INIT;
-    }
-}
-
 void fsm_setTime_run()
 {
     switch(status){
@@ -28,8 +19,7 @@ void fsm_setTime_run()
         break;
 
     case TIME_RED:
-        checkbutton3();
-        if(isButtonPressed(0)){
+        if(isButtonPressed(1)){
         	status = TIME_GREEN;
         	setLed1(OFF);
         	setLed2(OFF);
@@ -43,14 +33,14 @@ void fsm_setTime_run()
             setTimer1(500);
         }
         if(isButtonPressed(2)){
-        	if(red_init == 20){
+        	if(red_init > 20){
         		red_init = 1;
         	}else{
         		red_init++;
         	}
         }
         if(isButtonPressed(3)){
-        	if(red_init == 1){
+        	if(red_init < 1){
         		red_init = 20;
         	}else{
         		red_init--;
@@ -59,8 +49,7 @@ void fsm_setTime_run()
         break;
 
     case TIME_GREEN:
-    	checkbutton3();
-    	if(isButtonPressed(0)){
+    	if(isButtonPressed(1)){
 			status = TIME_YELLOW;
 			setLed1(OFF);
 			setLed2(OFF);
@@ -74,14 +63,14 @@ void fsm_setTime_run()
             setTimer1(500);
         }
         if(isButtonPressed(2)){
-			if(green_init == 20){
+			if(green_init > 20){
 				green_init = 1;
 			}else{
 				green_init++;
 			}
 		}
 		if(isButtonPressed(3)){
-			if(green_init == 1){
+			if(green_init < 1){
 				green_init = 20;
 			}else{
 				green_init--;
@@ -89,9 +78,8 @@ void fsm_setTime_run()
 		}
         break;
     case TIME_YELLOW:
-    	checkbutton3();
-		if(isButtonPressed(0)){
-			status = TIME_RED;
+		if(isButtonPressed(1)){
+			status = WAITTING;
 			setLed1(OFF);
 			setLed2(OFF);
 			setLed_Pedes(OFF);
@@ -104,19 +92,30 @@ void fsm_setTime_run()
             setTimer1(500);
         }
         if(isButtonPressed(2)){
-			if(yellow_init == 20){
+			if(yellow_init > 20){
 				yellow_init = 1;
 			}else{
 				yellow_init++;
 			}
 		}
 		if(isButtonPressed(3)){
-			if(yellow_init == 1){
+			if(yellow_init < 1){
 				yellow_init = 20;
 			}else{
 				yellow_init--;
 			}
 		}
         break;
+    case WAITTING:
+    	if(isButtonPressed(1))
+    	{
+    		status = TIME_RED;
+    	}
+    	else if(isButtonPressed(2))
+    	{
+    		status = INIT;
+    		status1 = INIT;
+    	}
+    	break;
     }
 }

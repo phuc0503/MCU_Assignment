@@ -23,6 +23,8 @@ void fsm_manual_run()
         status = MAN_RED;
         setLed1(RED);
 		setLed2(GREEN);
+		timer1_counter = 0;
+		timer1_flag = 1;
         break;
 
     case MAN_RED:
@@ -35,8 +37,8 @@ void fsm_manual_run()
         checkbutton2();
         if(timer1_flag == 1){
         	setLed1(RED);
+        	setLed2(GREEN);
         }
-        setLed2(GREEN);
         setLed_Pedes(GREEN);
         break;
 
@@ -48,9 +50,10 @@ void fsm_manual_run()
 		}
     	//TODO
     	checkbutton2();
-    	setLed1(GREEN);
+    	//setLed1(GREEN);
     	if(timer1_flag == 1){
     		setLed2(RED);
+    		setLed1(GREEN);
     	}
         setLed_Pedes(RED);
         break;
