@@ -24,6 +24,7 @@ Core/Src/led_color.o: ../Core/Src/led_color.c ../Core/Inc/led_color.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
  ../Core/Inc/led_color.h ../Core/Inc/fsm_manual.h
 ../Core/Inc/led_color.h:
 ../Core/Inc/global.h:
@@ -54,5 +55,6 @@ Core/Src/led_color.o: ../Core/Src/led_color.c ../Core/Inc/led_color.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
 ../Core/Inc/led_color.h:
 ../Core/Inc/fsm_manual.h:

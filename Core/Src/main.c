@@ -86,17 +86,17 @@ void test_IO(){
 }
 void buzzer()
 {
-//	__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, timer_counter);
-//	if(timer3_flag == 1)
-//	{
-//		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, timer_counter+30);
-//		setTimer3(500);
-//	}
-//	if(timer1_counter == 0)
-//	{
-//		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 0);
-//		timer_counter = 10;
-//	}
+	__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, timer_counter);
+	if(timer3_flag == 1)
+	{
+		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, timer_counter+30);
+		setTimer3(500);
+	}
+	if(timer1_counter == 0)
+	{
+		__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, 0);
+		timer_counter = 10;
+	}
 }
 void turn_off_buzzer()
 {
